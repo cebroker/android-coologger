@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.condorlabs.coologger.LoggerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-07-22T20:27:19" hostname="Leidys-MacBook-Pro.local" time="1.009">
+  <properties/>
+  <testcase name="given an event with a source not supported by any child logger when log is called then it should throw LogSourceNotSupportedException" classname="co.condorlabs.coologger.LoggerTest" time="0.978"/>
+  <testcase name="given an event supported by one source when log is called then it should be logged just to the child logger that support the source" classname="co.condorlabs.coologger.LoggerTest" time="0.014"/>
+  <testcase name="given an event supported by multiple source when log is called then it should be logged is all the sources" classname="co.condorlabs.coologger.LoggerTest" time="0.011"/>
+  <testcase name="given a unique identifier for the event when identify is called then it should identify in all the loggers" classname="co.condorlabs.coologger.LoggerTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

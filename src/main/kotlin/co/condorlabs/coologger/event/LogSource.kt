@@ -1,3 +1,6 @@
 package co.condorlabs.coologger.event
 
-interface LogSource
+interface LogSource {
+
+    val name: String
+}

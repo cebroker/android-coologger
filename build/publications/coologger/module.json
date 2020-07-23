@@ -3,7 +3,7 @@
   "component": {
     "group": "co.condorlabs.coologger",
     "module": "Coologger",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.1.1",
-      "buildId": "55cpyuxc6zfvra7hcfkz3bmytu"
+      "buildId": "hs2xld2g7fgfxoq6aukk3kgldu"
     }
   },
   "variants": [
@@ -28,13 +28,13 @@
       },
       "files": [
         {
-          "name": "Coologger-1.0.3.jar",
-          "url": "Coologger-1.0.3.jar",
-          "size": 17167,
-          "sha512": "bcada909e6e1a76d1fc7d0130a1341ee143a158c12412d97562a758230529051412c1b3c1525e4308d34cf33619e7521adc61cf78706fb00ee4997f19485d25e",
-          "sha256": "25406a588ca1be6ac2a8f228b5baf83c8a5a149aedb306848c9fff61b36b7511",
-          "sha1": "681f06f88d711356bc3f37828633bab964e90214",
-          "md5": "cf6338f1edc70ea75035dd8d3e474e04"
+          "name": "Coologger-1.0.5.jar",
+          "url": "Coologger-1.0.5.jar",
+          "size": 74724,
+          "sha512": "63fc3f7656ae8f4b6cbec2bc93db8b35573678b8a0083f141f71d30c98ab3e4412da1792e38492fed5f9605368c468d7fda5814a03e50bce735976b82c034179",
+          "sha256": "102a4a7c21fcfd1c475e8ec44928efbf09e3aa255e7caec7829af136a8cccd9c",
+          "sha1": "a6627dc7592cd92b0802cae5c6e67f06d8759191",
+          "md5": "a8300594533878149de7a1257b57cc58"
         }
       ]
     },
@@ -63,17 +63,24 @@
           "version": {
             "requires": "4.8.0"
           }
+        },
+        {
+          "group": "com.squareup",
+          "module": "kotlinpoet",
+          "version": {
+            "requires": "1.6.0"
+          }
         }
       ],
       "files": [
         {
-          "name": "Coologger-1.0.3.jar",
-          "url": "Coologger-1.0.3.jar",
-          "size": 17167,
-          "sha512": "bcada909e6e1a76d1fc7d0130a1341ee143a158c12412d97562a758230529051412c1b3c1525e4308d34cf33619e7521adc61cf78706fb00ee4997f19485d25e",
-          "sha256": "25406a588ca1be6ac2a8f228b5baf83c8a5a149aedb306848c9fff61b36b7511",
-          "sha1": "681f06f88d711356bc3f37828633bab964e90214",
-          "md5": "cf6338f1edc70ea75035dd8d3e474e04"
+          "name": "Coologger-1.0.5.jar",
+          "url": "Coologger-1.0.5.jar",
+          "size": 74724,
+          "sha512": "63fc3f7656ae8f4b6cbec2bc93db8b35573678b8a0083f141f71d30c98ab3e4412da1792e38492fed5f9605368c468d7fda5814a03e50bce735976b82c034179",
+          "sha256": "102a4a7c21fcfd1c475e8ec44928efbf09e3aa255e7caec7829af136a8cccd9c",
+          "sha1": "a6627dc7592cd92b0802cae5c6e67f06d8759191",
+          "md5": "a8300594533878149de7a1257b57cc58"
         }
       ]
     }

@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>co.condorlabs.coologger</groupId>
   <artifactId>Coologger</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.5</version>
   <dependencies>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
@@ -20,6 +20,12 @@
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
       <version>4.8.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup</groupId>
+      <artifactId>kotlinpoet</artifactId>
+      <version>1.6.0</version>
       <scope>runtime</scope>
     </dependency>
   </dependencies>

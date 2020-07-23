@@ -59,4 +59,5 @@ dependencies {
     testImplementation(Dependencies.JUNIT)
     testImplementation(Dependencies.MOCKK)
     testImplementation(Dependencies.KLUENT)
+    implementation(Dependencies.KOTLINPOET)
 }
