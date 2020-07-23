@@ -3,13 +3,13 @@ package co.condorlabs.coologger
 import co.condorlabs.coologger.logger.Logger
 import co.condorlabs.coologger.network.interceptor.NetworkLoggerInterceptor
 import co.condorlabs.coologger.network.mapper.NetworkLogEventMapperImpl
-import co.condorlabs.coologger.network.requestprocessor.DefaultRequestProcessor
+import co.condorlabs.coologger.network.requestprocessor.RequestProcessor
 import co.condorlabs.coologger.network.source.NetworkLogSource
 import io.mockk.Called
 import io.mockk.every
 import io.mockk.verify
 import okhttp3.*
-import org.amshove.kluent.shouldBeEqualTo
+import org.amshove.kluent.shouldBe
 import org.junit.Before
 import org.junit.Test
 import java.net.URI
@@ -25,7 +25,7 @@ class NetworkLoggerInterceptorTest {
     private val url = relaxedMockk<HttpUrl>()
     private val urlUri = relaxedMockk<URI>()
     private val headers = HEADERS
-    private val requestProcessor = relaxedMockk<DefaultRequestProcessor>()
+    private val requestProcessor = relaxedMockk<RequestProcessor>()
 
     private lateinit var interceptor: NetworkLoggerInterceptor
 
@@ -50,7 +50,7 @@ class NetworkLoggerInterceptorTest {
 
     @Test
     fun `given a request to an endpoint with network tracking event when interceptor intercepts then it should return the response, call the mapper and log the event`() {
-        interceptor.intercept(chain) shouldBeEqualTo response
+        interceptor.intercept(chain) shouldBe  response
 
         verify {
             chain.request()
@@ -72,7 +72,7 @@ class NetworkLoggerInterceptorTest {
     @Test
     fun `given a requets to an endpoint without network tracking event when interceptor intercepts it should just return the response`() {
         every { requestProcessor.getTrackingEvent(request) } answers { null }
-        interceptor.intercept(chain) shouldBeEqualTo response
+        interceptor.intercept(chain) shouldBe response
 
         verify {
             chain.request()

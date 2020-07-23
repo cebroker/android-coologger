@@ -13,7 +13,7 @@ object LibraryConstants {
     const val PUBLICATION_NAME = "coologger"
     const val ARTIFACT_NAME = "Coologger"
     const val ARTIFACT_GROUP = "co.condorlabs.coologger"
-    const val VERSION = "1.0.3"
+    const val VERSION = "1.0.5"
 
     const val POM_URL = "https://github.com/cebroker/Coologger"
     const val POM_SRC_URL = "https://github.com/cebroker/Coologger"
@@ -32,5 +32,6 @@ object Dependencies {
     const val OK_HTTP = "com.squareup.okhttp3:okhttp:4.8.0"
     const val JUNIT = "junit:junit:4.12"
     const val MOCKK = "io.mockk:mockk:1.10.0"
-    const val KLUENT = "org.amshove.kluent:kluent:1.4"
+    const val KLUENT = "org.amshove.kluent:kluent:1.14"
+    const val KOTLINPOET = "com.squareup:kotlinpoet:1.6.0"
 }
