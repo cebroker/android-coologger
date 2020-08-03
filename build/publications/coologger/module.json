@@ -3,7 +3,7 @@
   "component": {
     "group": "co.condorlabs.coologger",
     "module": "Coologger",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.1.1",
-      "buildId": "hs2xld2g7fgfxoq6aukk3kgldu"
+      "buildId": "uuwan542lfhohm3puye36ywj2u"
     }
   },
   "variants": [
@@ -28,13 +28,13 @@
       },
       "files": [
         {
-          "name": "Coologger-1.0.5.jar",
-          "url": "Coologger-1.0.5.jar",
-          "size": 74724,
-          "sha512": "63fc3f7656ae8f4b6cbec2bc93db8b35573678b8a0083f141f71d30c98ab3e4412da1792e38492fed5f9605368c468d7fda5814a03e50bce735976b82c034179",
-          "sha256": "102a4a7c21fcfd1c475e8ec44928efbf09e3aa255e7caec7829af136a8cccd9c",
-          "sha1": "a6627dc7592cd92b0802cae5c6e67f06d8759191",
-          "md5": "a8300594533878149de7a1257b57cc58"
+          "name": "Coologger-1.0.6.jar",
+          "url": "Coologger-1.0.6.jar",
+          "size": 21177,
+          "sha512": "2fccc6734ae6b20440a952109cb35d182a6ed27e698f515038fd63858510cf5e72871d23e0feb1e6f71da817d8193599575c047de52d1070d00920e234e84fb3",
+          "sha256": "4bbe7db98a8d9fe64621cda0e8cc448bc66699f2f3820b41953be94486b99208",
+          "sha1": "0ea0827f70677a1a45605ce148c4b7fc5cfe6925",
+          "md5": "9b902a8a322385eaa10a6d132dc5e4ce"
         }
       ]
     },
@@ -74,13 +74,13 @@
       ],
       "files": [
         {
-          "name": "Coologger-1.0.5.jar",
-          "url": "Coologger-1.0.5.jar",
-          "size": 74724,
-          "sha512": "63fc3f7656ae8f4b6cbec2bc93db8b35573678b8a0083f141f71d30c98ab3e4412da1792e38492fed5f9605368c468d7fda5814a03e50bce735976b82c034179",
-          "sha256": "102a4a7c21fcfd1c475e8ec44928efbf09e3aa255e7caec7829af136a8cccd9c",
-          "sha1": "a6627dc7592cd92b0802cae5c6e67f06d8759191",
-          "md5": "a8300594533878149de7a1257b57cc58"
+          "name": "Coologger-1.0.6.jar",
+          "url": "Coologger-1.0.6.jar",
+          "size": 21177,
+          "sha512": "2fccc6734ae6b20440a952109cb35d182a6ed27e698f515038fd63858510cf5e72871d23e0feb1e6f71da817d8193599575c047de52d1070d00920e234e84fb3",
+          "sha256": "4bbe7db98a8d9fe64621cda0e8cc448bc66699f2f3820b41953be94486b99208",
+          "sha1": "0ea0827f70677a1a45605ce148c4b7fc5cfe6925",
+          "md5": "9b902a8a322385eaa10a6d132dc5e4ce"
         }
       ]
     }
