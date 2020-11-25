@@ -13,7 +13,7 @@ object LibraryConstants {
     const val PUBLICATION_NAME = "coologger"
     const val ARTIFACT_NAME = "Coologger"
     const val ARTIFACT_GROUP = "co.condorlabs.coologger"
-    const val VERSION = "1.0.5"
+    const val VERSION = "1.0.6-SNAPSHOT"
 
     const val POM_URL = "https://github.com/cebroker/Coologger"
     const val POM_SRC_URL = "https://github.com/cebroker/Coologger"
