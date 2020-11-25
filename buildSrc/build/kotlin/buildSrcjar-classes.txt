@@ -1,1 +1,0 @@
-/Users/leidyzuluaga/Documents/Coologger/buildSrc/build/classes/kotlin/main/co/condorlabs/coologger/BintrayConstanst.class:/Users/leidyzuluaga/Documents/Coologger/buildSrc/build/classes/kotlin/main/co/condorlabs/coologger/Dependencies.class:/Users/leidyzuluaga/Documents/Coologger/buildSrc/build/classes/kotlin/main/co/condorlabs/coologger/LibraryConstants.class
