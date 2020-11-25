@@ -5,9 +5,11 @@ import co.condorlabs.coologger.event.LogSource
 import co.condorlabs.coologger.logger.Logger
 import co.condorlabs.coologger.processor.builder.DecoratorBuilder
 import co.condorlabs.coologger.processor.builder.MethodDecorator
+import co.condorlabs.coologger.processor.functioncreator.CrashFunctionCreator
 import co.condorlabs.coologger.processor.functioncreator.FunctionCreator
 import co.condorlabs.coologger.processor.functioncreator.ScreenShownFunctionCreator
 import co.condorlabs.coologger.processor.functioncreator.WidgetClikedFunctionCreator
+import co.condorlabs.coologger.processor.methodprocessors.CrashMethodProcessor
 import co.condorlabs.coologger.processor.methodprocessors.MethodProcessor
 import co.condorlabs.coologger.processor.methodprocessors.ScreenShownMethodProcessor
 import co.condorlabs.coologger.processor.methodprocessors.WidgetClickedMethodProcessor
@@ -36,11 +38,12 @@ class LoggerDecoratorProcessor : AbstractProcessor() {
 
     private val decoratorBuilders = mutableSetOf<DecoratorBuilder>()
     private val screenShownMethodProcessor: MethodProcessor =
-        ScreenShownMethodProcessor(WidgetClickedMethodProcessor())
+        ScreenShownMethodProcessor(WidgetClickedMethodProcessor(CrashMethodProcessor()))
 
     private val functionCreators = setOf<FunctionCreator<MethodDecorator>>(
         ScreenShownFunctionCreator() as FunctionCreator<MethodDecorator>,
-        WidgetClikedFunctionCreator() as FunctionCreator<MethodDecorator>
+        WidgetClikedFunctionCreator() as FunctionCreator<MethodDecorator>,
+        CrashFunctionCreator() as FunctionCreator<MethodDecorator>
     )
 
     private lateinit var filer: Filer
@@ -83,10 +86,10 @@ class LoggerDecoratorProcessor : AbstractProcessor() {
         elements.map { interfaceElement ->
             decoratorBuilders.add(
                 DecoratorBuilder(
-                    "${interfaceElement.simpleName}$LOGGER_DECORATOR_SUFFIX",
-                    processingEnvironment.elementUtils.getPackageOf(interfaceElement).qualifiedName.toString(),
-                    interfaceElement.simpleName.toString(),
-                    interfaceElement.enclosedElements.mapTo(mutableSetOf()) { methodElement ->
+                    className = "${interfaceElement.simpleName}$LOGGER_DECORATOR_SUFFIX",
+                    classPackage = processingEnvironment.elementUtils.getPackageOf(interfaceElement).qualifiedName.toString(),
+                    interfaceName = interfaceElement.simpleName.toString(),
+                    methodDecorators = interfaceElement.enclosedElements.mapTo(mutableSetOf()) { methodElement ->
                         screenShownMethodProcessor.process(methodElement, messager)
                     }
                 )
@@ -100,11 +103,11 @@ class LoggerDecoratorProcessor : AbstractProcessor() {
     private fun writeImplementations() {
         decoratorBuilders.forEach { decorator ->
             val constructor = FunSpec.constructorBuilder()
-                .addParameter(LOGGER_CONTRUCTOR_PARAM, Logger::class, KModifier.PRIVATE)
+                .addParameter(LOGGER_CONSTRUCTOR_PARAM, Logger::class, KModifier.PRIVATE)
                 .build()
 
-            val property = PropertySpec.builder(LOGGER_CONTRUCTOR_PARAM, Logger::class)
-                .initializer(LOGGER_CONTRUCTOR_PARAM)
+            val property = PropertySpec.builder(LOGGER_CONSTRUCTOR_PARAM, Logger::class)
+                .initializer(LOGGER_CONSTRUCTOR_PARAM)
                 .build()
 
             val fileBuilder = FileSpec.builder(decorator.classPackage, decorator.className)
@@ -146,7 +149,7 @@ class LoggerDecoratorProcessor : AbstractProcessor() {
 }
 
 private const val LOGGER_DECORATOR_SUFFIX = "Impl"
-private const val LOGGER_CONTRUCTOR_PARAM = "logger"
+private const val LOGGER_CONSTRUCTOR_PARAM = "logger"
 
 private const val LOGGER_ANNOTATION_WRONG_PLACE_ERROR_MESSAGE =
     "Annotation should only be present in interfaces"
