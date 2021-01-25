@@ -6,6 +6,7 @@ data class CrashMethodDecorator(
     val name: String,
     override val methodName: MethodName,
     override val sources: Set<LogSource>?,
+    override val propertiesNameException: PropertiesNameException?,
     override val propertiesName: PropertiesName?
 ) : MethodDecorator {
 
@@ -13,6 +14,7 @@ data class CrashMethodDecorator(
         builder.name,
         builder.methodName,
         builder.sources,
+        builder.propertiesNameException,
         builder.propertiesName
     )
 
@@ -20,8 +22,10 @@ data class CrashMethodDecorator(
         val name: String,
         val methodName: MethodName
     ) {
-
         var propertiesName: PropertiesName? = null
+            private set
+
+        var propertiesNameException: PropertiesNameException? = null
             private set
 
         var sources: Set<LogSource>? = null
@@ -32,8 +36,8 @@ data class CrashMethodDecorator(
             return this
         }
 
-        fun withExceptionParameterName(exceptionParameterName: PropertiesName?): Builder {
-            this.propertiesName = exceptionParameterName
+        fun withExceptionParameterName(exceptionParameterName: PropertiesNameException?): Builder {
+            this.propertiesNameException = exceptionParameterName
             return this
         }
 

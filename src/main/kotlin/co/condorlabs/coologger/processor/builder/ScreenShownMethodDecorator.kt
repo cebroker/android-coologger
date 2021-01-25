@@ -8,20 +8,24 @@ data class ScreenShownMethodDecorator(
     val screenShownName: ScreenShownName,
     override val methodName: MethodName,
     override val sources: Set<LogSource>?,
-    override val propertiesName: PropertiesName?
+    override val propertiesName: PropertiesName?,
+    override val propertiesNameException: PropertiesNameException?
 ) : MethodDecorator {
 
     private constructor(builder: Builder) : this(
         builder.screenShownName,
         builder.methodName,
         builder.sources,
-        builder.propertiesName
+        builder.propertiesName,
+        builder.propertiesNameException
     )
 
     class Builder constructor(
         val screenShownName: ScreenShownName,
         val methodName: MethodName
     ) {
+        var propertiesNameException: PropertiesNameException? = null
+            private set
 
         var propertiesName: PropertiesName? = null
             private set
