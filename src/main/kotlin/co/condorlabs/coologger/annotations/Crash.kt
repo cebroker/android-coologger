@@ -2,6 +2,5 @@ package co.condorlabs.coologger.annotations
 
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.FUNCTION)
-annotation class Crash(val name: String = CRASH)
+annotation class Crash
 
-private const val CRASH = "Crash"

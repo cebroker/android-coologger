@@ -8,8 +8,7 @@ data class WidgetClickedMethodDecorator(
     val widgetType: WidgetType,
     override val methodName: MethodName,
     override val sources: Set<LogSource>?,
-    override val propertiesName: PropertiesName?,
-    override val propertiesNameException: PropertiesNameException?
+    override val propertiesName: PropertiesName?
 ) : MethodDecorator {
 
     private constructor(builder: Builder) : this(
@@ -17,8 +16,7 @@ data class WidgetClickedMethodDecorator(
         builder.widgetType,
         builder.methodName,
         builder.sources,
-        builder.propertiesName,
-        builder.propertiesNameException
+        builder.propertiesName
     )
 
     class Builder constructor(
@@ -27,9 +25,6 @@ data class WidgetClickedMethodDecorator(
         val methodName: MethodName
 
     ) {
-
-        var propertiesNameException: PropertiesNameException? = null
-            private set
 
         var propertiesName: PropertiesName? = null
             private set

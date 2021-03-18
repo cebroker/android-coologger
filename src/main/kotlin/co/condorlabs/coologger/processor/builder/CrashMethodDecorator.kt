@@ -2,31 +2,23 @@ package co.condorlabs.coologger.processor.builder
 
 import co.condorlabs.coologger.event.LogSource
 
-data class CrashMethodDecorator(
-    val name: String,
+class CrashMethodDecorator(
     override val methodName: MethodName,
-    override val sources: Set<LogSource>?,
-    override val propertiesNameException: PropertiesNameException?,
-    override val propertiesName: PropertiesName?
+    override val propertiesName: PropertiesName,
+    override val sources: Set<LogSource>?
 ) : MethodDecorator {
 
     private constructor(builder: Builder) : this(
-        builder.name,
         builder.methodName,
-        builder.sources,
-        builder.propertiesNameException,
-        builder.propertiesName
+        builder.propertiesName,
+        builder.sources
     )
 
     class Builder constructor(
-        val name: String,
         val methodName: MethodName
     ) {
-        var propertiesName: PropertiesName? = null
-            private set
 
-        var propertiesNameException: PropertiesNameException? = null
-            private set
+        lateinit var propertiesName: PropertiesName
 
         var sources: Set<LogSource>? = null
             private set
@@ -36,8 +28,8 @@ data class CrashMethodDecorator(
             return this
         }
 
-        fun withExceptionParameterName(exceptionParameterName: PropertiesNameException?): Builder {
-            this.propertiesNameException = exceptionParameterName
+        fun withPropertiesName(propertiesName: PropertiesName): Builder {
+            this.propertiesName = propertiesName
             return this
         }
 
