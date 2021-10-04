@@ -13,23 +13,13 @@
 package co.condorlabs.coologger.sources
 
 import co.condorlabs.coologger.event.LogSource
-import co.condorlabs.coologger.network.source.NETWORK_LOG_SOURCE_NAME
-import co.condorlabs.coologger.network.source.NetworkLogSource
-
 
 object FirebaseSource : LogSource {
     override val name: String = FIREBASE_LOG_SOURCE_NAME
 }
 
-object CrashlytcisSource : LogSource {
+object CrashlyticsSource : LogSource {
     override val name: String = CRASHLYTICS_LOG_SOURCE_NAME
-}
-
-fun String.toLogSource() = when(this){
-    FIREBASE_LOG_SOURCE_NAME-> FirebaseSource
-    CRASHLYTICS_LOG_SOURCE_NAME -> CrashlytcisSource
-    NETWORK_LOG_SOURCE_NAME -> NetworkLogSource
-    else -> throw IllegalArgumentException("There not LogSource with name: $this")
 }
 
 const val FIREBASE_LOG_SOURCE_NAME = "FIREBASE"

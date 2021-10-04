@@ -1,6 +1,5 @@
 package co.condorlabs.coologger.network.interceptor
 
-
 import co.condorlabs.coologger.logger.Logger
 import co.condorlabs.coologger.network.event.NetworkServiceInformation
 import co.condorlabs.coologger.network.mapper.NetworkLogEventMapper
@@ -9,7 +8,6 @@ import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-
 
 class NetworkLoggerInterceptor(
     private val logger: Logger,
@@ -40,7 +38,6 @@ class NetworkLoggerInterceptor(
         request: Request,
         response: Response
     ): NetworkServiceInformation {
-
         return NetworkServiceInformation(
             path,
             request.url.host,

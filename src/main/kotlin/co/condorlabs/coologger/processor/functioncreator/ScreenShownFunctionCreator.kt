@@ -5,7 +5,6 @@ import co.condorlabs.coologger.processor.builder.MethodDecorator
 import co.condorlabs.coologger.processor.builder.ScreenShownMethodDecorator
 import com.squareup.kotlinpoet.FileSpec
 
-
 class ScreenShownFunctionCreator : AbstractFunctionCreator<ScreenShownMethodDecorator>() {
 
     override fun isApplicable(methodDecorator: MethodDecorator): Boolean =

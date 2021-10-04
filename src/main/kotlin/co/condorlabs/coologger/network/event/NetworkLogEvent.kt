@@ -4,7 +4,6 @@ import co.condorlabs.coologger.event.LogEvent
 import co.condorlabs.coologger.event.LogSource
 import co.condorlabs.coologger.network.source.NetworkLogSource
 
-
 open class NetworkLogEvent(
     override val name: String,
     networkServiceInformation: NetworkServiceInformation

@@ -7,10 +7,9 @@ import co.condorlabs.coologger.exceptions.LogSourceNotSupportedException
 class Coologger(private val childLoggers: Map<LogSource, Logger>) : Logger {
 
     override fun log(logEvent: LogEvent) {
-        val eventSupporters = childLoggers
-            .filterKeys { source ->
-                logEvent.isSourceSupported(source)
-            }
+        val eventSupporters = childLoggers.filterKeys { source ->
+            logEvent.isSourceSupported(source)
+        }
 
         if (eventSupporters.isEmpty()) {
             throw LogSourceNotSupportedException(logEvent.name)
@@ -18,7 +17,6 @@ class Coologger(private val childLoggers: Map<LogSource, Logger>) : Logger {
 
         eventSupporters.values.forEach { logger ->
             logger.log(logEvent)
-
         }
     }
 

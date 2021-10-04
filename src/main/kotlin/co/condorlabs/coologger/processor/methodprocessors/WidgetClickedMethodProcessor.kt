@@ -22,8 +22,8 @@ class WidgetClickedMethodProcessor(nextProcessor: MethodProcessor? = null) :
         }
 
         if (methodElement.parameters.size == ALLOWED_PARAMETERS_SIZE) {
-            val paramether = methodElement.parameters[PROPERTIES_POSITION_IN_PARAMETER]
-            methodDecoratorBuilder.withPropertiesName(paramether.simpleName.toString())
+            val parameter = methodElement.parameters[PROPERTIES_POSITION_IN_PARAMETER]
+            methodDecoratorBuilder.withPropertiesName(parameter.simpleName.toString())
         }
 
         return methodDecoratorBuilder.build()
