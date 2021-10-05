@@ -50,6 +50,7 @@ bintray {
 repositories {
     jcenter()
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
