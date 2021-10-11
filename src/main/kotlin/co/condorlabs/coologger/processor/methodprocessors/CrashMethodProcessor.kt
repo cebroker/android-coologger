@@ -1,19 +1,16 @@
 package co.condorlabs.coologger.processor.methodprocessors
 
-import co.condorlabs.coologger.annotations.ScreenShown
+import co.condorlabs.coologger.annotations.Crash
+import co.condorlabs.coologger.processor.builder.CrashMethodDecorator
 import co.condorlabs.coologger.processor.builder.MethodDecorator
-import co.condorlabs.coologger.processor.builder.ScreenShownMethodDecorator
 import javax.annotation.processing.Messager
 import javax.lang.model.element.Element
 import javax.lang.model.element.ExecutableElement
 
-class ScreenShownMethodProcessor(nextProcessor: MethodProcessor? = null) :
+class CrashMethodProcessor(nextProcessor: MethodProcessor? = null) :
     AbstractMethodProcessor(nextProcessor) {
 
-    override fun processInternally(
-        methodElement: ExecutableElement,
-        messager: Messager
-    ): MethodDecorator {
+    override fun processInternally(methodElement: ExecutableElement, messager: Messager): MethodDecorator {
         val methodDecoratorBuilder = getMethodMethodDecoratorBuilder(methodElement)
 
         getSources(methodElement)?.let {
@@ -28,13 +25,11 @@ class ScreenShownMethodProcessor(nextProcessor: MethodProcessor? = null) :
         return methodDecoratorBuilder.build()
     }
 
-    private fun getMethodMethodDecoratorBuilder(methodElement: ExecutableElement): ScreenShownMethodDecorator.Builder {
-        val screeName =
-            (methodElement.getAnnotation(ScreenShown::class.java) as ScreenShown).name
-
-        return ScreenShownMethodDecorator.Builder(screeName, getMethodName(methodElement))
+    private fun getMethodMethodDecoratorBuilder(methodElement: ExecutableElement): CrashMethodDecorator.Builder {
+        return CrashMethodDecorator.Builder(getMethodName(methodElement))
     }
 
     override fun canMethodBeProcessed(methodElement: Element): Boolean =
-        methodElement.getAnnotationsByType(ScreenShown::class.java).isNotEmpty()
+        methodElement.getAnnotationsByType(Crash::class.java).isNotEmpty()
+
 }

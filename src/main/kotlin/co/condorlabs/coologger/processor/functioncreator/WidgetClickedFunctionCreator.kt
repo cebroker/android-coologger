@@ -5,8 +5,7 @@ import co.condorlabs.coologger.processor.builder.MethodDecorator
 import co.condorlabs.coologger.processor.builder.WidgetClickedMethodDecorator
 import com.squareup.kotlinpoet.FileSpec
 
-
-class WidgetClikedFunctionCreator : AbstractFunctionCreator<WidgetClickedMethodDecorator>() {
+class WidgetClickedFunctionCreator : AbstractFunctionCreator<WidgetClickedMethodDecorator>() {
 
     override fun isApplicable(methodDecorator: MethodDecorator): Boolean =
         methodDecorator is WidgetClickedMethodDecorator

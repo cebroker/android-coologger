@@ -1,11 +1,9 @@
 package co.condorlabs.coologger.processor.functioncreator
 
-import co.condorlabs.coologger.event.LogSource
 import co.condorlabs.coologger.processor.builder.MethodDecorator
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-
 
 abstract class AbstractFunctionCreator<Decorator : MethodDecorator> : FunctionCreator<Decorator> {
 
@@ -18,13 +16,11 @@ abstract class AbstractFunctionCreator<Decorator : MethodDecorator> : FunctionCr
         return funBuilder.build()
     }
 
-    protected fun getSourcesStatement(sources: Set<LogSource>?): String = if (sources == null) {
+    protected fun getSourcesStatement(sources: Set<String>?): String = if (sources == null) {
         ""
     } else {
         """
-            , sources=setOf<LogSource>(${sources.joinToString(",") {
-            it.javaClass.name
-        }})
+            , sources=setOf<LogSource>(${sources.joinToString(",")})
         """.trimIndent()
     }
 
@@ -33,7 +29,7 @@ abstract class AbstractFunctionCreator<Decorator : MethodDecorator> : FunctionCr
         FunSpec.builder(methodDecorator.methodName)
             .addModifiers(KModifier.PUBLIC, KModifier.OVERRIDE)
 
-    private fun addProperties(funSpecBuilder: FunSpec.Builder, methodDecorator: Decorator) =
+    protected open fun addProperties(funSpecBuilder: FunSpec.Builder, methodDecorator: Decorator) =
         methodDecorator.propertiesName?.let { propertiesName ->
             funSpecBuilder.addParameter(
                 propertiesName,
@@ -41,11 +37,7 @@ abstract class AbstractFunctionCreator<Decorator : MethodDecorator> : FunctionCr
             )
         }
 
-    private fun addReturnType(
-        funBuilder: FunSpec.Builder,
-        methodDecorator: Decorator
-    ) {
-        funBuilder.returns(Unit::class.javaObjectType)
-            .addStatement(getMethodStatement(methodDecorator))
+    private fun addReturnType(funBuilder: FunSpec.Builder, methodDecorator: Decorator) {
+        funBuilder.returns(Unit::class.javaObjectType).addStatement(getMethodStatement(methodDecorator))
     }
 }

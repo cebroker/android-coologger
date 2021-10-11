@@ -21,8 +21,7 @@ class ScreenViewEvent(
         }
     }
 
-    override fun isSourceSupported(logSource: LogSource): Boolean =
-        sources.contains(FirebaseSource)
+    override fun isSourceSupported(logSource: LogSource): Boolean = sources.contains(logSource)
 }
 
 private const val SCREEN_NAME_EVENT_NAME = "SCREEN_NAME"

@@ -4,9 +4,7 @@ import co.condorlabs.coologger.event.LogEvent
 import co.condorlabs.coologger.network.event.NetworkLogEvent
 import co.condorlabs.coologger.network.event.NetworkServiceInformation
 
-
-class NetworkLogEventMapperImpl :
-    NetworkLogEventMapper {
+class NetworkLogEventMapperImpl : NetworkLogEventMapper {
 
     override fun map(
         serviceName: NetworkServiceName,

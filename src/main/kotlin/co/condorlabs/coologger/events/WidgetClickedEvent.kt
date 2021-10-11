@@ -26,5 +26,3 @@ class WidgetClickedEvent(
 
 private const val WIDGET_NAME_SUFFIX = "_NAME"
 private const val WIDGET_ACTION_SUFFIX = "_CLICK"
-
-
