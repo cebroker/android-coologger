@@ -58,7 +58,6 @@ abstract class AbstractMethodProcessor(private val nextProcessor: MethodProcesso
         return try {
             logSources.logSources.map { it.simpleName!! }.toSet()
         } catch (e: MirroredTypesException) {
-            e.printStackTrace()
             e.typeMirrors.map { it.toString() }.toSet()
         }
     }
