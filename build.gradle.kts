@@ -10,7 +10,7 @@ apply {
 
 plugins {
     java
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.6.10"
     id("com.jfrog.bintray") version "1.8.5"
 }
 
